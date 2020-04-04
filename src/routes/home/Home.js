@@ -12,22 +12,22 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import s from './Home.css';
 
-export default function Home({ news }) {
+export default function Home({ exams }) {
   useStyles(s);
   return (
     <div className={s.root}>
       <div className={s.container}>
-        <h1>React.js News</h1>
-        {news.map(item => (
-          <article key={item.link} className={s.newsItem}>
-            <h1 className={s.newsTitle}>
-              <a href={item.link}>{item.title}</a>
+        <h1>Exams</h1>
+        {exams.map(item => (
+          <article className={s.newsItem}>
+            <h1 className={s.examTitle}>
+              <a href="#x">{item.title}</a>
             </h1>
-            <div
-              className={s.newsDesc}
-              // eslint-disable-next-line react/no-danger
-              dangerouslySetInnerHTML={{ __html: item.content }}
-            />
+            <h2 className={s.examDuration}>Duration: {item.exam_duration}</h2>
+            <p>
+              Published Date:{' '}
+              {new Date(item.pub_date).toISOString().split('T')[0]}{' '}
+            </p>
           </article>
         ))}
       </div>
@@ -36,11 +36,11 @@ export default function Home({ news }) {
 }
 
 Home.propTypes = {
-  news: PropTypes.arrayOf(
+  exams: PropTypes.arrayOf(
     PropTypes.shape({
       title: PropTypes.string.isRequired,
-      link: PropTypes.string.isRequired,
-      content: PropTypes.string,
+      pub_date: PropTypes.string.isRequired,
+      exam_duration: PropTypes.string,
     }),
   ).isRequired,
 };

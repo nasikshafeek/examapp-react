@@ -12,19 +12,17 @@ import Home from './Home';
 import Layout from '../../components/Layout';
 
 async function action({ fetch }) {
-  const resp = await fetch('/graphql', {
-    body: JSON.stringify({
-      query: '{news{title,link,content}}',
-    }),
+  const response = await fetch('http://0.0.0.0:8000/api/exams/?format=json', {
+    mode: 'no-cors',
   });
-  const { data } = await resp.json();
-  if (!data || !data.news) throw new Error('Failed to load the news feed.');
+  const exams = await response.json();
+  if (!exams) throw new Error('Failed to load the exams.');
   return {
-    title: 'React Starter Kit',
+    title: 'K-Exams App',
     chunks: ['home'],
     component: (
       <Layout>
-        <Home news={data.news} />
+        <Home exams={exams} />
       </Layout>
     ),
   };

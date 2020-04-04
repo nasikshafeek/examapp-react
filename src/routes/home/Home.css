@@ -24,24 +24,14 @@
   margin: 0 0 2rem;
 }
 
-.newsTitle {
+.examTitle {
+  display: inline-block;
+  width: 250px;
   font-size: 1.5rem;
 }
 
-.newsDesc h1,
-.newsDesc h2,
-.newsDesc h3,
-.newsDesc h4,
-.newsDesc h5,
-.newsDesc h6 {
-  font-size: 1.125rem;
-}
-
-.newsDesc pre {
-  white-space: pre-wrap;
-  font-size: 0.875rem;
-}
-
-.newsDesc img {
-  max-width: 100%;
+.examDuration {
+  display: inline;
+  font-size: 1.5rem;
+  margin-left: 5px;
 }
