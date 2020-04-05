@@ -15,6 +15,7 @@ export default function ExamWall({ title, id, exam }) {
           {title}: {exam.title}
         </h1>
         <h3>Duration: {exam.exam_duration}</h3>
+        <h4>Number of Questions: {exam.question_count}</h4>
         <div dangerouslySetInnerHTML={{ __html: exam.description }} />
         <br />
         <Link className={s.takeExamButton} to={`/exam/${id}/take-exam`}>
