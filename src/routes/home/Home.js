@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/anchor-has-content */
 /**
  * React Starter Kit (https://www.reactstarterkit.com/)
  *
@@ -10,6 +11,7 @@
 import useStyles from 'isomorphic-style-loader/useStyles';
 import React from 'react';
 import PropTypes from 'prop-types';
+import Link from '../../components/Link';
 import s from './Home.css';
 
 export default function Home({ exams }) {
@@ -19,15 +21,14 @@ export default function Home({ exams }) {
       <div className={s.container}>
         <h1>Exams</h1>
         {exams.map(item => (
-          <article className={s.newsItem}>
-            <h1 className={s.examTitle}>
-              <a href="#x">{item.title}</a>
-            </h1>
+          <article className={s.examItem}>
+            <h1 className={s.examTitle}> {item.title} </h1>
             <h2 className={s.examDuration}>Duration: {item.exam_duration}</h2>
             <p>
               Published Date:{' '}
               {new Date(item.pub_date).toISOString().split('T')[0]}{' '}
             </p>
+            <Link className={s.hiddenLink} href={`/exam-wall/${item.id}`} />
           </article>
         ))}
       </div>

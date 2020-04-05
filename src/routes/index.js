@@ -20,8 +20,12 @@ const routes = {
       load: () => import(/* webpackChunkName: 'home' */ './home'),
     },
     {
+      path: '/exam-wall/:id',
+      load: () => import(/* webpackChunkName: 'exam-wall' */ './exam-wall'),
+    },
+    {
       path: '/exam/:id',
-      load: () => import(/* webpackChunkName: 'login' */ './exam-wall'),
+      load: () => import(/* webpackChunkName: 'exam' */ './exam'),
     },
     {
       path: '/login',

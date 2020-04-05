@@ -3,10 +3,10 @@
 import useStyles from 'isomorphic-style-loader/useStyles';
 import React from 'react';
 import PropTypes from 'prop-types';
-import s from './ExamWall.css';
+import s from './Exam.css';
 import Link from '../../components/Link/Link';
 
-export default function ExamWall({ title, id, exam }) {
+export default function Exam({ title, id, exam }) {
   useStyles(s);
   return (
     <div className={s.root}>
@@ -18,7 +18,7 @@ export default function ExamWall({ title, id, exam }) {
         <h4>Number of Questions: {exam.question_count}</h4>
         <div dangerouslySetInnerHTML={{ __html: exam.description }} />
         <br />
-        <Link className={s.takeExamButton} to={`/exam/${id}`}>
+        <Link className={s.takeExamButton} to={`/exam/${id}/take-exam`}>
           Take the exam
         </Link>
       </div>
@@ -26,7 +26,7 @@ export default function ExamWall({ title, id, exam }) {
   );
 }
 
-ExamWall.propTypes = {
+Exam.propTypes = {
   id: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
   exam: PropTypes.object.isRequired,
